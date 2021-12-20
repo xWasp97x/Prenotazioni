@@ -7,5 +7,5 @@ RUN apt-get install python3.8 -y --fix-missing
 RUN apt install python3-pip -y
 
 RUN git clone https://github.com/xWasp97x/Prenotazioni.git
-WORKDIR ./RSS
+WORKDIR ./Prenotazioni
 CMD /bin/sh entrypoint.sh
