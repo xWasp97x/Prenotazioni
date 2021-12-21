@@ -27,16 +27,18 @@ def get_surname(complete_name: str):
     return ' '.join(surname_parts)
 
 
-with open('/config/config.yaml') as file:
+config_path = './config.yaml'
+
+with open(config_path) as file:
     config = yaml.safe_load(file)
 
 with open(config['surnames_path']) as file:
     surnames = [line.strip() for line in file.readlines()]
 
-
 user_home = os.path.expanduser('~')
 
 download_folder = os.path.join(user_home, 'Downloads')
+
 
 # download_folder = config['download_path']
 
@@ -173,7 +175,8 @@ def iteration():
             cell.alignment = centered
 
     for col in range(6):
-        max_length = max([len(sheet.cell(row, 6).value) for row in range(3, 9, 1) if sheet.cell(row, 6).value is not None])
+        max_length = max(
+            [len(sheet.cell(row, 6).value) for row in range(3, 9, 1) if sheet.cell(row, 6).value is not None])
         sheet.column_dimensions[chr(ord('A') + col)].width = max_length
 
     for row in range(3, 12, 1):
@@ -190,7 +193,9 @@ def iteration():
 
 if __name__ == '__main__':
     delay = config['loop_delay']
+    '''
     while True:
         iteration()
         time.sleep(delay)
-
+    '''
+    iteration()
