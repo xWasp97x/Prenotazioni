@@ -20,7 +20,7 @@ def download():
     link_reservations = 'https://web.spaggiari.eu/cvv/app/default/agenda.php?mode=prenotazione&aula_id=8207'
     link_file = f"https://web.spaggiari.eu/cvv/app/default/xml_export.php?stampa=%3Astampa%3A&report_name=&tipo=agenda&data={now.strftime('%d+%m+%Y')}&autore_id=5343519&tipo_export=EVENTI_PRENOTAZIONE&quad=%3Aquad%3A&materia_id=&classe_id=8207&gruppo_id=&ope=RPT&dal={monday.strftime('%Y-%m-%d')}&al={friday.strftime('%Y-%m-%d')}&tipologia=corrente&formato=xml"
 
-    with open('/config/config.yaml') as file:
+    with open('./config.yaml') as file:
         config = yaml.safe_load(file)
 
     profile = webdriver.FirefoxProfile()
