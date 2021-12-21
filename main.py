@@ -181,7 +181,7 @@ def iteration():
 
     for col in range(6):
         max_length = max(
-            [len(sheet.cell(row, 6).value) for row in range(3, 9, 1) if sheet.cell(row, 6).value is not None])
+            [len(sheet.cell(row, col).value) for row in range(3, 9, 1) if sheet.cell(row, col).value is not None])
         sheet.column_dimensions[chr(ord('A') + col)].width = max_length
 
     for row in range(3, 12, 1):
