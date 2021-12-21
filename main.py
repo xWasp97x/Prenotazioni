@@ -79,7 +79,12 @@ def iteration():
 
     df = pd.DataFrame(data=parsed_lines[1:], columns=parsed_lines[0])
 
-    output_name = os.path.join(config['output_path'], 'reservations.xlsx')
+    output_path = config['output_path']
+
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+
+    output_name = os.path.join(output_path, 'reservations.xlsx')
 
     workbook = Workbook()
     sheet = workbook.active
